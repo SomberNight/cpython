@@ -267,8 +267,7 @@ class _SSLPipe(object):
                 if exc.reason == 'PROTOCOL_IS_SHUTDOWN':
                     exc_errno = exc.errno = ssl.SSL_ERROR_WANT_READ
                 if exc_errno not in (ssl.SSL_ERROR_WANT_READ,
-                                     ssl.SSL_ERROR_WANT_WRITE,
-                                     ssl.SSL_ERROR_SYSCALL):
+                                     ssl.SSL_ERROR_WANT_WRITE):
                     raise
                 self._need_ssldata = (exc_errno == ssl.SSL_ERROR_WANT_READ)
 
